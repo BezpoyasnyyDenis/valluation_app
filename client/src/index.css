@@ -1,0 +1,151 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 0 0% 100%;
+  --foreground: 20 14.3% 4.1%;
+  --muted: 60 4.8% 95.9%;
+  --muted-foreground: 25 5.3% 44.7%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 20 14.3% 4.1%;
+  --card: 0 0% 100%;
+  --card-foreground: 20 14.3% 4.1%;
+  --border: 20 5.9% 90%;
+  --input: 20 5.9% 90%;
+  --primary: 207 90% 54%;
+  --primary-dark: 207 90% 40%;
+  --primary-light: 207 90% 65%;
+  --primary-foreground: 211 100% 99%;
+  --secondary: 218 79% 56%;
+  --secondary-foreground: 0 0% 98%;
+  --accent: 142 71% 45%;
+  --accent-foreground: 0 0% 98%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 60 9.1% 97.8%;
+  --ring: 20 14.3% 4.1%;
+  --radius: 0.5rem;
+  --success: 142 71% 45%;
+  --warning: 38 92% 50%;
+  --info: 200 98% 39%;
+  --error: 0 84.2% 60.2%;
+}
+
+.dark {
+  --background: 240 10% 3.9%;
+  --foreground: 0 0% 98%;
+  --muted: 240 3.7% 15.9%;
+  --muted-foreground: 240 5% 64.9%;
+  --popover: 240 10% 3.9%;
+  --popover-foreground: 0 0% 98%;
+  --card: 240 10% 3.9%;
+  --card-foreground: 0 0% 98%;
+  --border: 240 3.7% 15.9%;
+  --input: 240 3.7% 15.9%;
+  --primary: 207 90% 54%;
+  --primary-dark: 207 90% 40%;
+  --primary-light: 207 90% 65%;
+  --primary-foreground: 211 100% 99%;
+  --secondary: 218 79% 56%;
+  --secondary-foreground: 0 0% 98%;
+  --accent: 142 71% 45%;
+  --accent-foreground: 0 0% 98%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 0 0% 98%;
+  --ring: 240 4.9% 83.9%;
+  --radius: 0.5rem;
+  --success: 142 71% 45%;
+  --warning: 38 92% 50%;
+  --info: 200 98% 39%;
+  --error: 0 84.2% 60.2%;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+  }
+}
+
+@layer components {
+  /* Кнопки з градієнтом */
+  .btn-gradient {
+    @apply bg-gradient-to-r from-primary to-primary-dark hover:from-primary-dark hover:to-primary text-white shadow-md hover:shadow-lg transition-all duration-300;
+  }
+  
+  /* Покращені карточки */
+  .card-enhanced {
+    @apply bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden;
+  }
+  
+  /* Стилі для бейджів */
+  .badge-success {
+    @apply bg-green-100 text-green-800 hover:bg-green-200;
+  }
+  
+  .badge-warning {
+    @apply bg-yellow-100 text-yellow-800 hover:bg-yellow-200;
+  }
+  
+  .badge-error {
+    @apply bg-red-100 text-red-800 hover:bg-red-200;
+  }
+  
+  .badge-info {
+    @apply bg-blue-100 text-blue-800 hover:bg-blue-200;
+  }
+  
+  /* Заголовки з градієнтами */
+  .gradient-text {
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-dark font-bold;
+  }
+  
+  /* Покращені форми */
+  .input-enhanced {
+    @apply border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-200;
+  }
+
+  /* Покращені таблиці */
+  .table-row-hover {
+    @apply hover:bg-gray-50 transition-colors duration-150;
+  }
+  
+  /* Анімовані елементи */
+  .pulse-animation {
+    animation: pulse 2s infinite;
+  }
+  
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  /* Затемнений фон для модальних вікон */
+  .modal-backdrop {
+    @apply fixed inset-0 bg-black/40 backdrop-blur-sm z-40;
+  }
+}
+
+/* Глобальні дизайн-стилі */
+.bg-gradient {
+  @apply bg-gradient-to-r from-primary to-primary-dark;
+}
+
+.text-gradient {
+  @apply text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-dark;
+}
+
+/* Покращені фокус-стани для доступності */
+.focus-visible:focus-visible {
+  @apply outline-none ring-2 ring-primary ring-offset-2;
+}
